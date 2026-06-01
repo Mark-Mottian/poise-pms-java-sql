@@ -17,7 +17,8 @@ public class DatabaseManager {
   private static final String DB_USER = getEnvironmentValue("POISEPMS_DB_USER", "root");
 
   // Default local password can be changed with POISEPMS_DB_PASSWORD.
-  private static final String DB_PASSWORD = getEnvironmentValue("POISEPMS_DB_PASSWORD", "password123");
+  private static final String DB_PASSWORD =
+      getEnvironmentValue("POISEPMS_DB_PASSWORD", "password123");
 
   // <=== DATABASE CONNECTION METHOD ===>
 

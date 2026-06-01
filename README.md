@@ -20,6 +20,20 @@ This project was built as a Java database programming capstone and has been prep
 - Delete project and person records
 - Display linked project, customer, architect, contractor, engineer and manager data
 
+## Screenshots
+
+### Main Menu
+
+![PoisePMS main menu](screenshots/main-menu.png)
+
+### View All Projects
+
+![PoisePMS view all projects output](screenshots/view-all-projects.png)
+
+### Database Tables
+
+![PoisePMS database tables](screenshots/database-tables.png)
+
 ## Technologies Used
 
 - Java

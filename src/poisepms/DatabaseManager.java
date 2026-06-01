@@ -9,14 +9,15 @@ public class DatabaseManager {
 
   // <=== DATABASE CONNECTION DETAILS ===>
 
-  // Task Requirement: Use JDBC to read and write data from the PoisePMS database.
-  private static final String DB_URL = "jdbc:mariadb://localhost:3306/PoisePMS";
+  // Environment variables make the app easier to run on different machines.
+  private static final String DB_URL =
+      getEnvironmentValue("POISEPMS_DB_URL", "jdbc:mariadb://localhost:3306/PoisePMS");
 
-  // This is the MariaDB username used by the Java program.
-  private static final String DB_USER = "root";
+  // Default local username can be changed with POISEPMS_DB_USER.
+  private static final String DB_USER = getEnvironmentValue("POISEPMS_DB_USER", "root");
 
-  // Change this password to match your own local MariaDB password before running.
-  private static final String DB_PASSWORD = "password123";
+  // Default local password can be changed with POISEPMS_DB_PASSWORD.
+  private static final String DB_PASSWORD = getEnvironmentValue("POISEPMS_DB_PASSWORD", "password123");
 
   // <=== DATABASE CONNECTION METHOD ===>
 
@@ -45,5 +46,20 @@ public class DatabaseManager {
       // Stop the program because the menu depends on a working database connection.
       System.exit(0);
     }
+  }
+
+  // <=== ENVIRONMENT VARIABLE HELPER ===>
+
+  private static String getEnvironmentValue(String variableName, String defaultValue) {
+    // Read the environment variable from the user's machine.
+    String environmentValue = System.getenv(variableName);
+
+    // Use the environment variable if it exists.
+    if (environmentValue != null && !environmentValue.isBlank()) {
+      return environmentValue;
+    }
+
+    // Use the local default if no environment variable was provided.
+    return defaultValue;
   }
 }

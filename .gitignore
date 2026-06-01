@@ -1,0 +1,17 @@
+# <=== COMPILED JAVA FILES ===>
+bin/
+*.class
+
+# <=== ECLIPSE SETTINGS ===>
+.settings/
+
+# <=== OPERATING SYSTEM FILES ===>
+.DS_Store
+Thumbs.db
+
+# <=== EDITOR FILES ===>
+.vscode/
+.idea/
+
+# <=== LOG FILES ===>
+*.log

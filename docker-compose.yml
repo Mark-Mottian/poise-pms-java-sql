@@ -1,0 +1,17 @@
+services:
+  mariadb:
+    image: mariadb:11.4
+    container_name: poise-pms-mariadb
+    restart: unless-stopped
+    environment:
+      MARIADB_ROOT_PASSWORD: password123
+      MARIADB_DATABASE: PoisePMS
+    ports:
+      - "3307:3306"
+    volumes:
+      - ./database/schema.sql:/docker-entrypoint-initdb.d/01-schema.sql
+      - ./database/seed.sql:/docker-entrypoint-initdb.d/02-seed.sql
+      - poise-pms-data:/var/lib/mysql
+
+volumes:
+  poise-pms-data:

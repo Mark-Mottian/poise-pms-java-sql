@@ -127,6 +127,17 @@ The schema file creates the `PoisePMS` database and all required tables.
 
 The seed file adds sample project and people data so the application can be tested immediately.
 
+## Docker MariaDB Setup
+
+This project includes a `docker-compose.yml` file for running MariaDB in Docker.
+
+This is useful if you want to test the database setup without using a manually installed local MariaDB server.
+
+Start the MariaDB container:
+
+```powershell
+docker compose up -d
+
 ## Database Configuration
 
 The application reads database connection details from environment variables first.
